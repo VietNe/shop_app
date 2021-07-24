@@ -33,6 +33,12 @@ class SignInBody extends StatelessWidget {
               SizedBox(height: SizeConfig.screenHeight * 0.08),
               const SignInForm(),
               SizedBox(height: SizeConfig.screenHeight * 0.08),
+              Text(
+                "Or sign in with",
+                style: TextStyle(fontSize: getProportionateScreenWidth(16)),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: getProportionateScreenHeight(20)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
