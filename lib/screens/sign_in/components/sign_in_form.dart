@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/components/custom_suffix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
+import 'package:shop_app/components/loader.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
+import 'package:shop_app/screens/login_success/login_success_screen.dart';
 import 'package:shop_app/size_config.dart';
 
 class SignInForm extends StatefulWidget {
@@ -19,6 +21,21 @@ class _SignInFormState extends State<SignInForm> {
   bool remember = false;
 
   final List<String> errors = [];
+
+  void _onSignIn(BuildContext context) {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      // dismiss keyboard during async call
+      FocusScope.of(context).requestFocus(FocusNode());
+
+      Navigator.of(context).restorablePush(dialogBuilder);
+
+      Future.delayed(const Duration(seconds: 3), () {
+        Navigator.of(context).pop();
+        Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,16 +84,10 @@ class _SignInFormState extends State<SignInForm> {
             height: getProportionateScreenHeight(20),
           ),
           DefaultButton(
-            text: 'Continue',
-            onPress: () {
-              if (_formKey.currentState!.validate()) {
-              } else {
-                // setState(() {
-                //   _autovalidate = true;
-                // });
-              }
-            },
-          ),
+              text: 'Continue',
+              onPress: () {
+                _onSignIn(context);
+              }),
         ],
       ),
     );

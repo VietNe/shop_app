@@ -12,53 +12,55 @@ class SignInBody extends StatelessWidget {
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
-        child: Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: Column(
-            children: [
-              SizedBox(height: SizeConfig.screenHeight * 0.04),
-              Text(
-                "Welcome Back",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: getProportionateScreenWidth(28),
-                  fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: getProportionateScreenWidth(20)),
+            child: Column(
+              children: [
+                SizedBox(height: SizeConfig.screenHeight * 0.04),
+                Text(
+                  "Welcome Back",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: getProportionateScreenWidth(28),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              const Text(
-                "Sign in with your email and password  \nor continue with social media",
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: SizeConfig.screenHeight * 0.08),
-              const SignInForm(),
-              SizedBox(height: SizeConfig.screenHeight * 0.08),
-              Text(
-                "Or sign in with",
-                style: TextStyle(fontSize: getProportionateScreenWidth(16)),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: getProportionateScreenHeight(20)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SocalCard(
-                    icon: "assets/icons/google-icon.svg",
-                    press: () {},
-                  ),
-                  SocalCard(
-                    icon: "assets/icons/facebook-2.svg",
-                    press: () {},
-                  ),
-                  SocalCard(
-                    icon: "assets/icons/twitter.svg",
-                    press: () {},
-                  ),
-                ],
-              ),
-              SizedBox(height: getProportionateScreenHeight(20)),
-              const NoAccountText(),
-            ],
+                const Text(
+                  "Sign in with your email and password  \nor continue with social media",
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: SizeConfig.screenHeight * 0.08),
+                const SignInForm(),
+                SizedBox(height: SizeConfig.screenHeight * 0.08),
+                Text(
+                  "Or sign in with",
+                  style: TextStyle(fontSize: getProportionateScreenWidth(16)),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: getProportionateScreenHeight(20)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SocalCard(
+                      icon: "assets/icons/google-icon.svg",
+                      press: () {},
+                    ),
+                    SocalCard(
+                      icon: "assets/icons/facebook-2.svg",
+                      press: () {},
+                    ),
+                    SocalCard(
+                      icon: "assets/icons/twitter.svg",
+                      press: () {},
+                    ),
+                  ],
+                ),
+                SizedBox(height: getProportionateScreenHeight(20)),
+                const NoAccountText(),
+              ],
+            ),
           ),
         ),
       ),
