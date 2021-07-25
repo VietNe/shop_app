@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/screens/otp/components/otp_form.dart';
 import 'package:shop_app/size_config.dart';
+
+const initStartTimer = 10;
 
 class OTPBody extends StatefulWidget {
   const OTPBody({Key? key}) : super(key: key);
@@ -11,6 +15,46 @@ class OTPBody extends StatefulWidget {
 }
 
 class _OTPBodyState extends State<OTPBody> {
+  Timer? _timer;
+  int _start = initStartTimer;
+
+  void startTimer() {
+    if (_start == 0) {
+      setState(() {
+        _start = initStartTimer;
+      });
+    }
+    const oneSec = Duration(seconds: 1);
+    _timer = Timer.periodic(
+      oneSec,
+      (Timer timer) {
+        if (_start == 0) {
+          setState(() {
+            timer.cancel();
+          });
+        } else {
+          setState(() {
+            _start--;
+          });
+        }
+      },
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    startTimer();
+  }
+
+  @override
+  void dispose() {
+    if (_timer?.isActive == true) {
+      _timer?.cancel();
+    }
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,18 +73,20 @@ class _OTPBodyState extends State<OTPBody> {
                   textAlign: TextAlign.center,
                 ),
                 buildTimer(),
-                SizedBox(height: SizeConfig.screenHeight * 0.06),
+                // SizedBox(height: SizeConfig.screenHeight * 0.06),
                 const OTPForm(),
-                SizedBox(height: SizeConfig.screenHeight * 0.1),
-                GestureDetector(
-                  onTap: () {
-                    // OTP code resend
-                  },
-                  child: const Text(
-                    "Resend OTP Code",
-                    style: TextStyle(decoration: TextDecoration.underline),
-                  ),
-                )
+                SizedBox(height: SizeConfig.screenHeight * 0.07),
+                if (_start == 0)
+                  (GestureDetector(
+                    onTap: () {
+                      // OTP code resend
+                      startTimer();
+                    },
+                    child: const Text(
+                      "Resend OTP Code",
+                      style: TextStyle(decoration: TextDecoration.underline),
+                    ),
+                  )),
               ],
             ),
           ),
@@ -54,13 +100,9 @@ class _OTPBodyState extends State<OTPBody> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Text("This code will expired in "),
-        TweenAnimationBuilder(
-          tween: Tween(begin: 30.0, end: 0.0),
-          duration: const Duration(seconds: 30),
-          builder: (_, double value, child) => Text(
-            "00:${value.toInt()}",
-            style: const TextStyle(color: kPrimaryColor),
-          ),
+        Text(
+          "00:${_start.toString().padLeft(2, '0')}s",
+          style: const TextStyle(color: kPrimaryColor),
         ),
       ],
     );

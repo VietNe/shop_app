@@ -125,11 +125,10 @@ class _SignUpFormState extends State<SignUpForm> {
       onChanged: (value) {
         if (value.isNotEmpty && errors.contains(kRePassNullError)) {
           removeError(error: kRePassNullError);
-        } else if (value.isNotEmpty && password == confirmPassword) {
+        } else if (value.isNotEmpty && password == value) {
           removeError(error: kMatchPassError);
-
-          confirmPassword = value;
         }
+        confirmPassword = value;
       },
       validator: (value) {
         if ((value == null || value.isEmpty) &&

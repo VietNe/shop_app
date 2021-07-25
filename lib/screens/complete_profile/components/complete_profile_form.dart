@@ -76,7 +76,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           ),
           FormError(errors: errors),
           SizedBox(
-            height: getProportionateScreenHeight(40),
+            height: getProportionateScreenHeight(20),
           ),
           DefaultButton(text: 'Continue', onPress: _onSignUp),
         ],
@@ -103,7 +103,6 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         }
         return null;
       },
-      obscureText: true,
       decoration: const InputDecoration(
         hintText: 'Enter your address',
         labelText: 'Address',
@@ -132,7 +131,6 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         }
         return null;
       },
-      obscureText: true,
       decoration: const InputDecoration(
         hintText: 'Enter your phone number',
         labelText: 'Phone Number',
@@ -160,7 +158,6 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         }
         return null;
       },
-      obscureText: true,
       decoration: const InputDecoration(
         hintText: 'Enter your last name',
         labelText: 'Last Name',
@@ -188,7 +185,6 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         }
         return null;
       },
-      obscureText: true,
       decoration: const InputDecoration(
         hintText: 'Enter your first name',
         labelText: 'First Name',
