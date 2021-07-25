@@ -25,7 +25,6 @@ class _ProductCardState extends State<ProductCard> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _isFavourite = widget.product.isFavourite;
   }

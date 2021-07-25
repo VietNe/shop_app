@@ -27,7 +27,7 @@ class HomeBody extends StatelessWidget {
                   const SpecialOffers(),
                   SizedBox(height: getProportionateScreenWidth(30)),
                   const PopularProducts(),
-                  SizedBox(height: getProportionateScreenWidth(30)),
+                  SizedBox(height: getProportionateScreenWidth(120)),
                 ],
               ),
             ),
