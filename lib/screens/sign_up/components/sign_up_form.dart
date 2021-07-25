@@ -4,7 +4,7 @@ import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/components/loader.dart';
 import 'package:shop_app/constants.dart';
-import 'package:shop_app/screens/login_success/login_success_screen.dart';
+import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
 import 'package:shop_app/size_config.dart';
 
 class SignUpForm extends StatefulWidget {
@@ -47,7 +47,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
       Future.delayed(const Duration(seconds: 3), () {
         Navigator.of(context).pop();
-        Navigator.pushNamed(context, LoginSuccessScreen.routeName);
+        Navigator.pushNamed(context, CompleteProfileScreen.routeName);
       });
     }
   }
