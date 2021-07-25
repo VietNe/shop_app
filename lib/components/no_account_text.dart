@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
+import 'package:shop_app/screens/otp/otp_screen.dart';
 import 'package:shop_app/screens/sign_up/sign_up_screen.dart';
 
 import '../constants.dart';
@@ -21,7 +22,7 @@ class NoAccountText extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+            Navigator.pushNamed(context, OTPScreen.routeName);
           },
           child: Text(
             "Sign Up",

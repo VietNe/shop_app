@@ -33,9 +33,10 @@ class _BodyState extends State<Body> {
   ];
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return SingleChildScrollView(
       child: SizedBox(
         width: double.infinity,
+        height: SizeConfig.screenHeight,
         child: Column(
           children: [
             Expanded(

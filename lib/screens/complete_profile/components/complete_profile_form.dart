@@ -4,7 +4,7 @@ import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/components/loader.dart';
 import 'package:shop_app/constants.dart';
-import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
+import 'package:shop_app/screens/otp/otp_screen.dart';
 import 'package:shop_app/size_config.dart';
 
 class CompleteProfileForm extends StatefulWidget {
@@ -47,7 +47,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
       Future.delayed(const Duration(seconds: 3), () {
         Navigator.of(context).pop();
-        Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+        Navigator.pushNamed(context, OTPScreen.routeName);
       });
     }
   }
@@ -71,6 +71,9 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
             height: getProportionateScreenHeight(20),
           ),
           buildAddressTextField(),
+          SizedBox(
+            height: getProportionateScreenHeight(20),
+          ),
           FormError(errors: errors),
           SizedBox(
             height: getProportionateScreenHeight(40),

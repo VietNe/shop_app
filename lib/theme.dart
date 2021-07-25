@@ -8,6 +8,8 @@ ThemeData theme() {
     fontFamily: 'Muli',
     textTheme: textTheme(),
     inputDecorationTheme: inputDecorationTheme(),
+    textSelectionTheme:
+        const TextSelectionThemeData(cursorColor: kPrimaryColor),
   );
 }
 
