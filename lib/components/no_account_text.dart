@@ -7,8 +7,10 @@ import '../size_config.dart';
 class NoAccountText extends StatelessWidget {
   const NoAccountText({
     Key? key,
+    this.isForgotPassScreen = false,
   }) : super(key: key);
 
+  final bool isForgotPassScreen;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,7 +22,11 @@ class NoAccountText extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, SignUpScreen.routeName);
+            if (isForgotPassScreen) {
+              Navigator.pushReplacementNamed(context, SignUpScreen.routeName);
+            } else {
+              Navigator.pushNamed(context, SignUpScreen.routeName);
+            }
           },
           child: Text(
             "Sign Up",

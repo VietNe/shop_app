@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/default_button.dart';
+import 'package:shop_app/components/loader.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/screens/login_success/login_success_screen.dart';
 import 'package:shop_app/size_config.dart';
@@ -59,8 +60,15 @@ class _OTPFormState extends State<OTPForm> {
           DefaultButton(
             text: "Continue",
             onPress: () {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, LoginSuccessScreen.routeName, (route) => false);
+              FocusScope.of(context).requestFocus(FocusNode());
+
+              Navigator.of(context).restorablePush(dialogBuilder);
+
+              Future.delayed(const Duration(seconds: 3), () {
+                Navigator.of(context).pop();
+                Navigator.pushNamedAndRemoveUntil(
+                    context, LoginSuccessScreen.routeName, (route) => false);
+              });
             },
           )
         ],

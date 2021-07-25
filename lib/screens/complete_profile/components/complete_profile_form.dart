@@ -37,7 +37,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   final List<String> errors = [];
 
-  void _onSignUp() {
+  void _onCompleteProfileSubmit() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       // dismiss keyboard during async call
@@ -78,7 +78,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           SizedBox(
             height: getProportionateScreenHeight(20),
           ),
-          DefaultButton(text: 'Continue', onPress: _onSignUp),
+          DefaultButton(text: 'Continue', onPress: _onCompleteProfileSubmit),
         ],
       ),
     );

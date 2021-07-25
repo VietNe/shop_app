@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/components/custom_suffix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
+import 'package:shop_app/components/loader.dart';
 import 'package:shop_app/components/no_account_text.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/size_config.dart';
@@ -32,7 +33,7 @@ class ForgotPasswordBody extends StatelessWidget {
                 "Please enter your email and we will send \nyou a link to return to your account",
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: SizeConfig.screenHeight * 0.1),
+              SizedBox(height: SizeConfig.screenHeight * 0.05),
               const ForgotPassForm(),
             ],
           ),
@@ -107,17 +108,29 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
           ),
           SizedBox(height: getProportionateScreenHeight(20)),
           FormError(errors: errors),
-          SizedBox(height: SizeConfig.screenHeight * 0.1),
+          SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
             text: "Continue",
             onPress: () {
               if (_formKey.currentState!.validate()) {
                 // Do what you want to do
+                _formKey.currentState!.save();
+                // dismiss keyboard during async call
+                FocusScope.of(context).requestFocus(FocusNode());
+
+                Navigator.of(context).restorablePush(dialogBuilder);
+
+                Future.delayed(const Duration(seconds: 3), () {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                });
               }
             },
           ),
-          SizedBox(height: SizeConfig.screenHeight * 0.1),
-          const NoAccountText(),
+          SizedBox(height: SizeConfig.screenHeight * 0.05),
+          const NoAccountText(
+            isForgotPassScreen: true,
+          ),
         ],
       ),
     );

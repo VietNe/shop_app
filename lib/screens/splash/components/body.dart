@@ -21,8 +21,8 @@ class _BodyState extends State<Body> {
       "image": "assets/images/splash_1.png"
     },
     {
-      "title": "TOKYO",
-      "text": "We help people conect with store \naround Tokyo",
+      "title": "DA NANG",
+      "text": "We help people conect with store \naround Viet Nam",
       "image": "assets/images/splash_2.png"
     },
     {
@@ -36,7 +36,7 @@ class _BodyState extends State<Body> {
     return SingleChildScrollView(
       child: SizedBox(
         width: double.infinity,
-        height: SizeConfig.screenHeight,
+        height: SizeConfig.screenHeight - SizeConfig.statusBarHeight,
         child: Column(
           children: [
             Expanded(

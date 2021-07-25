@@ -6,12 +6,14 @@ class SizeConfig {
   static double screenHeight = 0.0;
   static double? defaultSize;
   static Orientation? orientation;
+  static double statusBarHeight = 0.0;
 
   void init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);
     screenWidth = _mediaQueryData!.size.width;
     screenHeight = _mediaQueryData!.size.height;
     orientation = _mediaQueryData!.orientation;
+    statusBarHeight = _mediaQueryData!.padding.top;
   }
 }
 
