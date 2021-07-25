@@ -4,23 +4,20 @@ import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/components/loader.dart';
 import 'package:shop_app/constants.dart';
-import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
 import 'package:shop_app/screens/login_success/login_success_screen.dart';
 import 'package:shop_app/size_config.dart';
 
-class SignInForm extends StatefulWidget {
-  const SignInForm({Key? key}) : super(key: key);
+class SignUpForm extends StatefulWidget {
+  const SignUpForm({Key? key}) : super(key: key);
 
   @override
-  State<SignInForm> createState() => _SignInFormState();
+  State<SignUpForm> createState() => _SignUpFormState();
 }
 
-class _SignInFormState extends State<SignInForm> {
+class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
-  String? email, password;
+  String? email, password, confirmPassword;
   bool remember = false;
-
-  final List<String> errors = [];
 
   void addError({String? error}) {
     if (!errors.contains(error)) {
@@ -38,7 +35,9 @@ class _SignInFormState extends State<SignInForm> {
     }
   }
 
-  void _onSignIn() {
+  final List<String> errors = [];
+
+  void _onSignUp() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       // dismiss keyboard during async call
@@ -67,39 +66,15 @@ class _SignInFormState extends State<SignInForm> {
           SizedBox(
             height: getProportionateScreenHeight(20),
           ),
-          Row(
-            children: [
-              Checkbox(
-                side: const BorderSide(
-                  width: 1,
-                  color: kTextColor,
-                ),
-                value: remember,
-                activeColor: kPrimaryColor,
-                onChanged: (bool? value) {
-                  setState(() {
-                    remember = value!;
-                  });
-                },
-              ),
-              const Text("Remember me"),
-              const Spacer(),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, ForgotPasswordScreen.routeName);
-                },
-                child: const Text(
-                  "Forgot Password",
-                  style: TextStyle(decoration: TextDecoration.underline),
-                ),
-              )
-            ],
+          buildConfirmPasswordTextField(),
+          SizedBox(
+            height: getProportionateScreenHeight(20),
           ),
           FormError(errors: errors),
           SizedBox(
             height: getProportionateScreenHeight(20),
           ),
-          DefaultButton(text: 'Continue', onPress: _onSignIn),
+          DefaultButton(text: 'Continue', onPress: _onSignUp),
         ],
       ),
     );
@@ -114,6 +89,7 @@ class _SignInFormState extends State<SignInForm> {
         } else if (value.length >= 8 && errors.contains(kShortPassError)) {
           removeError(error: kShortPassError);
         }
+        password = value;
       },
       validator: (value) {
         if ((value == null || value.isEmpty) &&
@@ -138,6 +114,45 @@ class _SignInFormState extends State<SignInForm> {
       decoration: const InputDecoration(
         hintText: 'Enter your password',
         labelText: 'Password',
+        suffixIcon: CustomSuffixIcon(svgIconSrc: 'assets/icons/Lock.svg'),
+      ),
+    );
+  }
+
+  TextFormField buildConfirmPasswordTextField() {
+    return TextFormField(
+      onSaved: (newValue) => confirmPassword = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kRePassNullError)) {
+          removeError(error: kRePassNullError);
+        } else if (value.isNotEmpty && password == confirmPassword) {
+          removeError(error: kMatchPassError);
+
+          confirmPassword = value;
+        }
+      },
+      validator: (value) {
+        if ((value == null || value.isEmpty) &&
+            !errors.contains(kRePassNullError)) {
+          addError(error: kRePassNullError);
+
+          return '';
+        } else if (value != null &&
+            value.isNotEmpty &&
+            password != confirmPassword) {
+          addError(error: kMatchPassError);
+
+          return '';
+        } else if (errors.contains(kPassNullError) ||
+            errors.contains(kMatchPassError)) {
+          return '';
+        }
+        return null;
+      },
+      obscureText: true,
+      decoration: const InputDecoration(
+        hintText: 'Re-enter your password',
+        labelText: 'Confirm Password',
         suffixIcon: CustomSuffixIcon(svgIconSrc: 'assets/icons/Lock.svg'),
       ),
     );

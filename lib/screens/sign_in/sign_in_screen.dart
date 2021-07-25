@@ -8,8 +8,7 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: const Text(
           "Sign In",
@@ -17,6 +16,6 @@ class SignInScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: const SignInBody(),
-    ));
+    );
   }
 }

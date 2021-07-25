@@ -8,13 +8,13 @@ class LoginSuccessScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const SizedBox(),
-        title: const Text("Login Success"),
-        centerTitle: true,
-      ),
-      body: const LoginSuccessBody(),
+    return const Scaffold(
+      // appBar: AppBar(
+      //   leading: const SizedBox(),
+      //   title: const Text("Login Success"),
+      //   centerTitle: true,
+      // ),
+      body: LoginSuccessBody(),
     );
   }
 }

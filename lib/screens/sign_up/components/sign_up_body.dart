@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/no_account_text.dart';
 import 'package:shop_app/components/socal_card.dart';
 import 'package:shop_app/constants.dart';
-import 'package:shop_app/screens/sign_in/components/sign_in_form.dart';
+import 'package:shop_app/screens/sign_up/components/sign_up_form.dart';
 import 'package:shop_app/size_config.dart';
 
-class SignInBody extends StatelessWidget {
-  const SignInBody({Key? key}) : super(key: key);
+class SignUpBody extends StatelessWidget {
+  const SignUpBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +19,13 @@ class SignInBody extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: SizeConfig.screenHeight * 0.04),
-                Text("Welcome Back", style: headingStyle),
+                Text("Register Account", style: headingStyle),
                 const Text(
-                  "Sign in with your email and password  \nor continue with social media",
+                  "Complete your details or continue \nwith social media",
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
-                const SignInForm(),
+                const SignUpForm(),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
                 Text(
                   "Or sign in with",
@@ -52,7 +51,11 @@ class SignInBody extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: getProportionateScreenHeight(20)),
-                const NoAccountText(),
+                Text(
+                  'By continuing your confirm that you agree \nwith our Term and Condition',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.caption,
+                )
               ],
             ),
           ),
