@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/default_button.dart';
+import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/size_config.dart';
 
 class LoginSuccessBody extends StatelessWidget {
@@ -28,7 +29,9 @@ class LoginSuccessBody extends StatelessWidget {
           width: SizeConfig.screenWidth * 0.6,
           child: DefaultButton(
             text: "Back to home",
-            onPress: () {},
+            onPress: () {
+              Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+            },
           ),
         ),
         const Spacer(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/routes.dart';
+import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/screens/splash/splash_screen.dart';
 import 'package:shop_app/theme.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: theme(),
-        initialRoute: SplashScreen.routeName,
+        initialRoute: HomeScreen.routeName,
         routes: routes,
       ),
     );
