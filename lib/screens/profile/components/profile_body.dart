@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/screens/my_account/my_account_screen.dart';
 import 'package:shop_app/screens/profile/components/profile_menu.dart';
 import 'package:shop_app/screens/profile/components/profile_pic.dart';
+import 'package:shop_app/size_config.dart';
 
 class ProfileBody extends StatelessWidget {
   const ProfileBody({Key? key}) : super(key: key);
@@ -41,6 +42,7 @@ class ProfileBody extends StatelessWidget {
             icon: "assets/icons/Log out.svg",
             press: () {},
           ),
+          SizedBox(height: getProportionateScreenWidth(120)),
         ],
       ),
     );

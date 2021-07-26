@@ -12,11 +12,12 @@ class ProductCard extends StatefulWidget {
     this.width = 140,
     this.aspectRetio = 1.02,
     required this.product,
+    this.isRow = true,
   }) : super(key: key);
 
   final double width, aspectRetio;
   final Product product;
-
+  final bool isRow;
   @override
   State<ProductCard> createState() => _ProductCardState();
 }
@@ -33,7 +34,9 @@ class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
+      padding: EdgeInsets.only(
+          left: getProportionateScreenWidth(widget.isRow ? 20 : 0),
+          top: getProportionateScreenWidth(widget.isRow ? 0 : 30)),
       child: SizedBox(
         width: getProportionateScreenWidth(widget.width),
         child: InkWell(
@@ -49,7 +52,7 @@ class _ProductCardState extends State<ProductCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AspectRatio(
-                aspectRatio: 1.02,
+                aspectRatio: widget.isRow ? 1.02 : 0.7,
                 child: Container(
                   padding: EdgeInsets.all(getProportionateScreenWidth(20)),
                   decoration: BoxDecoration(
