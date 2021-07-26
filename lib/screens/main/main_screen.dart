@@ -17,7 +17,7 @@ class _MainScreenState extends State<MainScreen> {
   List<int> stacks = [0];
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    HomeScreen(),
+    ProfileScreen(),
     ProfileScreen(),
     ProfileScreen(),
   ];
@@ -37,7 +37,6 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    print(stacks);
     return WillPopScope(
       onWillPop: () async {
         if (stacks.isNotEmpty) {
