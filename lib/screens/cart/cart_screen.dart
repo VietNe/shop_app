@@ -12,9 +12,12 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(context),
       body: Stack(
-        children: const [
-          CartBody(),
-          Positioned(bottom: 0, child: CheckoutCard()),
+        children: [
+          SizedBox(
+            height: SizeConfig.screenHeight,
+            child: const CartBody(),
+          ),
+          const Positioned(bottom: 0, child: CheckoutCard()),
         ],
       ),
     );

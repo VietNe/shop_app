@@ -18,7 +18,7 @@ class _CartBodyState extends State<CartBody> {
         child: Column(
           children: [
             ShopItem(carts: demoCarts, shopName: 'Wanna Store'),
-            ShopItem(carts: demoCarts, shopName: 'Spotz Store'),
+            ShopItem(carts: demoCarts2, shopName: 'Spotz Store'),
             SizedBox(
               height: getProportionateScreenWidth(180),
             )

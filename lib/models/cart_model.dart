@@ -14,3 +14,10 @@ List<Cart> demoCarts = [
   Cart(product: demoProducts[1], numOfItem: 1),
   Cart(product: demoProducts[3], numOfItem: 1),
 ];
+
+List<Cart> demoCarts2 = [
+  Cart(product: demoProducts[0], numOfItem: 2),
+  Cart(product: demoProducts[1], numOfItem: 4),
+  Cart(product: demoProducts[2], numOfItem: 6),
+  Cart(product: demoProducts[3], numOfItem: 3),
+];

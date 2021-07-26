@@ -17,17 +17,19 @@ class _ShopItemState extends State<ShopItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+      padding: EdgeInsets.symmetric(
+          horizontal:
+              getProportionateScreenWidth(widget.carts.isNotEmpty ? 20 : 0)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(widget.shopName,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: getProportionateScreenWidth(18),
-                fontWeight: FontWeight.bold,
-              )),
+          if (widget.carts.isNotEmpty)
+            Text(widget.shopName,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: getProportionateScreenWidth(18),
+                  fontWeight: FontWeight.bold,
+                )),
           SizedBox(height: getProportionateScreenHeight(10)),
           ...List.generate(
             widget.carts.length,
@@ -58,7 +60,8 @@ class _ShopItemState extends State<ShopItem> {
               ),
             ),
           ),
-          SizedBox(height: getProportionateScreenHeight(20)),
+          if (widget.carts.isNotEmpty)
+            SizedBox(height: getProportionateScreenHeight(20)),
         ],
       ),
     );
