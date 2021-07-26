@@ -23,7 +23,7 @@ class HomeHeader extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, CartScreen.routeName);
             },
-            numberOfItems: 0,
+            numberOfItems: 2,
           ),
           IconWithCounter(
             svgSrc: 'assets/icons/Bell.svg',

@@ -63,7 +63,8 @@ class CheckoutCard extends StatelessWidget {
                     onPressed: () {},
                     child: Row(
                       children: const [
-                        Text("Add voucher code"),
+                        Text("Add voucher code",
+                            style: TextStyle(fontWeight: FontWeight.bold)),
                         SizedBox(width: 10),
                         Icon(
                           Icons.arrow_forward_ios,
