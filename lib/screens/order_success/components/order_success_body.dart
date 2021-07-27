@@ -3,8 +3,8 @@ import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/screens/main/main_screen.dart';
 import 'package:shop_app/size_config.dart';
 
-class LoginSuccessBody extends StatelessWidget {
-  const LoginSuccessBody({Key? key}) : super(key: key);
+class OrderSuccessBody extends StatelessWidget {
+  const OrderSuccessBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class LoginSuccessBody extends StatelessWidget {
         ),
         SizedBox(height: SizeConfig.screenHeight * 0.08),
         Text(
-          "Login Success",
+          "Order Success",
           style: TextStyle(
             fontSize: getProportionateScreenWidth(30),
             fontWeight: FontWeight.bold,
@@ -25,7 +25,7 @@ class LoginSuccessBody extends StatelessWidget {
           ),
         ),
         Text(
-          "Now you're ready to go shopping",
+          "Your packet will send to your address, thanks for order!",
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: getProportionateScreenWidth(18),
