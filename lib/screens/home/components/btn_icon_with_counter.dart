@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_app/components/number_badge.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/size_config.dart';
 
@@ -37,26 +38,7 @@ class IconWithCounter extends StatelessWidget {
             Positioned(
               top: -3,
               right: -3,
-              child: Container(
-                height: getProportionateScreenWidth(21),
-                width: getProportionateScreenWidth(21),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFF4848),
-                  shape: BoxShape.circle,
-                  border: Border.all(width: 1.5, color: Colors.white),
-                ),
-                child: Center(
-                  child: Text(
-                    "$numberOfItems",
-                    style: TextStyle(
-                      fontSize: getProportionateScreenWidth(7),
-                      height: 1,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
+              child: NumberBadge(numberOfItems: numberOfItems),
             ),
         ],
       ),
