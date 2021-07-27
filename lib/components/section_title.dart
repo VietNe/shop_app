@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/size_config.dart';
 
 class SectionTitle extends StatelessWidget {
-  const SectionTitle({
-    Key? key,
-    required this.text,
-    required this.onPress,
-  }) : super(key: key);
+  const SectionTitle(
+      {Key? key,
+      required this.text,
+      required this.onPress,
+      this.btnTitle = 'See more'})
+      : super(key: key);
 
-  final String text;
+  final String text, btnTitle;
   final GestureTapCallback onPress;
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class SectionTitle extends StatelessWidget {
           ),
           InkWell(
             onTap: onPress,
-            child: const Text('See more'),
+            child: Text(btnTitle),
           ),
         ],
       ),

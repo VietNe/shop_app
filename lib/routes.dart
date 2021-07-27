@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:shop_app/screens/cart/cart_screen.dart';
+import 'package:shop_app/screens/checkout/checkout_screen.dart';
 import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
 import 'package:shop_app/screens/details/details_screen.dart';
 import 'package:shop_app/screens/favorites/favorites_screen.dart';
@@ -39,4 +40,5 @@ final Map<String, WidgetBuilder> routes = {
   SettingsScreen.routeName: (context) => const SettingsScreen(),
   OrderSuccessScreen.routeName: (context) => const OrderSuccessScreen(),
   NotificationsScreen.routeName: (context) => const NotificationsScreen(),
+  CheckoutScreen.routeName: (context) => const CheckoutScreen(),
 };

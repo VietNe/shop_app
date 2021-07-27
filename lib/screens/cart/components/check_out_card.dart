@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_app/components/default_button.dart';
+import 'package:shop_app/screens/checkout/checkout_screen.dart';
 import 'package:shop_app/screens/order_success/oder_success_screen.dart';
 
 import '../../../constants.dart';
@@ -9,8 +10,10 @@ import '../../../size_config.dart';
 class CheckoutCard extends StatelessWidget {
   const CheckoutCard({
     Key? key,
+    this.isCheckoutScreen = false,
   }) : super(key: key);
 
+  final bool isCheckoutScreen;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -98,10 +101,15 @@ class CheckoutCard extends StatelessWidget {
                   SizedBox(
                     width: getProportionateScreenWidth(190),
                     child: DefaultButton(
-                      text: "Check Out",
+                      text: isCheckoutScreen ? "Pay Now" : "Check Out",
                       onPress: () {
-                        Navigator.pushNamed(
-                            context, OrderSuccessScreen.routeName);
+                        if (!isCheckoutScreen) {
+                          Navigator.pushNamed(
+                              context, CheckoutScreen.routeName);
+                        } else {
+                          Navigator.pushNamedAndRemoveUntil(context,
+                              OrderSuccessScreen.routeName, (route) => false);
+                        }
                       },
                     ),
                   ),
