@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/screens/my_account/my_account_screen.dart';
 import 'package:shop_app/screens/profile/components/profile_menu.dart';
 import 'package:shop_app/screens/profile/components/profile_pic.dart';
+import 'package:shop_app/screens/settings/settings_screen.dart';
 import 'package:shop_app/size_config.dart';
 
 class ProfileBody extends StatelessWidget {
@@ -30,7 +31,9 @@ class ProfileBody extends StatelessWidget {
           ProfileMenu(
             text: "Settings",
             icon: "assets/icons/Settings.svg",
-            press: () {},
+            press: () {
+              Navigator.pushNamed(context, SettingsScreen.routeName);
+            },
           ),
           ProfileMenu(
             text: "Help Center",

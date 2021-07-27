@@ -36,7 +36,7 @@ class _MyAccountFormState extends State<MyAccountForm> {
 
   final List<String> errors = [];
 
-  void _onCompleteProfileSubmit() {
+  void _onSaveChanges() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       // dismiss keyboard during async call
@@ -85,8 +85,7 @@ class _MyAccountFormState extends State<MyAccountForm> {
             height: getProportionateScreenHeight(20),
           ),
           FormError(errors: errors),
-          DefaultButton(
-              text: 'Save Changes', onPress: _onCompleteProfileSubmit),
+          DefaultButton(text: 'Save Changes', onPress: _onSaveChanges),
         ],
       ),
     );
