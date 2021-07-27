@@ -9,6 +9,7 @@ import 'package:shop_app/screens/login_success/login_success_screen.dart';
 import 'package:shop_app/screens/main/main_screen.dart';
 import 'package:shop_app/screens/messages/messages_screen.dart';
 import 'package:shop_app/screens/my_account/my_account_screen.dart';
+import 'package:shop_app/screens/notifications/notifications_screen.dart';
 import 'package:shop_app/screens/order_success/oder_success_screen.dart';
 import 'package:shop_app/screens/otp/otp_screen.dart';
 import 'package:shop_app/screens/profile/profile_screen.dart';
@@ -37,4 +38,5 @@ final Map<String, WidgetBuilder> routes = {
   MessagesScreen.routeName: (context) => const MessagesScreen(),
   SettingsScreen.routeName: (context) => const SettingsScreen(),
   OrderSuccessScreen.routeName: (context) => const OrderSuccessScreen(),
+  NotificationsScreen.routeName: (context) => const NotificationsScreen(),
 };

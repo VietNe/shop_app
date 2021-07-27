@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/screens/my_account/my_account_screen.dart';
+import 'package:shop_app/screens/notifications/notifications_screen.dart';
 import 'package:shop_app/screens/profile/components/profile_menu.dart';
 import 'package:shop_app/screens/profile/components/profile_pic.dart';
 import 'package:shop_app/screens/settings/settings_screen.dart';
@@ -26,7 +27,9 @@ class ProfileBody extends StatelessWidget {
           ProfileMenu(
             text: "Notifications",
             icon: "assets/icons/Bell.svg",
-            press: () {},
+            press: () {
+              Navigator.pushNamed(context, NotificationsScreen.routeName);
+            },
           ),
           ProfileMenu(
             text: "Settings",

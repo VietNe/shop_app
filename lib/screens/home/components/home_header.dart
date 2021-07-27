@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/models/notification_model.dart';
 import 'package:shop_app/screens/cart/cart_screen.dart';
 import 'package:shop_app/screens/home/components/btn_icon_with_counter.dart';
 import 'package:shop_app/screens/home/components/search_field.dart';
+import 'package:shop_app/screens/notifications/notifications_screen.dart';
 import 'package:shop_app/size_config.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -27,8 +29,10 @@ class HomeHeader extends StatelessWidget {
           ),
           IconWithCounter(
             svgSrc: 'assets/icons/Bell.svg',
-            onTap: () {},
-            numberOfItems: 99,
+            onTap: () {
+              Navigator.pushNamed(context, NotificationsScreen.routeName);
+            },
+            numberOfItems: demoNotifications.length,
           )
         ],
       ),

@@ -3,7 +3,7 @@ import 'package:shop_app/components/product_card.dart';
 import 'package:shop_app/models/product_models.dart';
 
 import '../../../size_config.dart';
-import 'section_title.dart';
+import '../../../components/section_title.dart';
 
 class PopularProducts extends StatelessWidget {
   const PopularProducts({Key? key}) : super(key: key);
