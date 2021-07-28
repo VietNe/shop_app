@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_app/screens/feedback/feedback_screen.dart';
 import 'package:shop_app/size_config.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -38,25 +39,41 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
             const Spacer(),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(14),
-              ),
-              child: Row(
-                children: [
-                  Text(
-                    "$rating",
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
+            Stack(
+              children: [
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: Row(
+                    children: [
+                      Text(
+                        "$rating",
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                      SvgPicture.asset("assets/icons/Star Icon.svg"),
+                    ],
+                  ),
+                ),
+                Positioned.fill(
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(14),
+                      onTap: () {
+                        Navigator.pushNamed(context, FeedbackScreen.routeName);
+                      },
                     ),
                   ),
-                  const SizedBox(width: 5),
-                  SvgPicture.asset("assets/icons/Star Icon.svg"),
-                ],
-              ),
+                ),
+              ],
             )
           ],
         ),

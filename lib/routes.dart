@@ -5,6 +5,7 @@ import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
 import 'package:shop_app/screens/confirm_password/confirm_password_screen.dart';
 import 'package:shop_app/screens/details/details_screen.dart';
 import 'package:shop_app/screens/favorites/favorites_screen.dart';
+import 'package:shop_app/screens/feedback/feedback_screen.dart';
 import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
 import 'package:shop_app/screens/help_center/help_center_screen.dart';
 import 'package:shop_app/screens/home/home_screen.dart';
@@ -47,4 +48,5 @@ final Map<String, WidgetBuilder> routes = {
   HelpCenterScreen.routeName: (context) => const HelpCenterScreen(),
   MessagesStoreScreen.routeName: (context) => const MessagesStoreScreen(),
   ConfirmPasswordScreen.routeName: (context) => const ConfirmPasswordScreen(),
+  FeedbackScreen.routeName: (context) => const FeedbackScreen(),
 };
