@@ -5,6 +5,7 @@ import 'package:shop_app/screens/notifications/notifications_screen.dart';
 import 'package:shop_app/screens/profile/components/profile_menu.dart';
 import 'package:shop_app/screens/profile/components/profile_pic.dart';
 import 'package:shop_app/screens/settings/settings_screen.dart';
+import 'package:shop_app/screens/splash/splash_screen.dart';
 import 'package:shop_app/size_config.dart';
 
 class ProfileBody extends StatelessWidget {
@@ -49,7 +50,10 @@ class ProfileBody extends StatelessWidget {
           ProfileMenu(
             text: "Log Out",
             icon: "assets/icons/Log out.svg",
-            press: () {},
+            press: () {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, SplashScreen.routeName, (route) => false);
+            },
           ),
           SizedBox(height: getProportionateScreenWidth(120)),
         ],

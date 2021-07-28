@@ -21,6 +21,7 @@ class CustomSuffixIcon extends StatelessWidget {
       child: SvgPicture.asset(
         svgIconSrc,
         height: getProportionateScreenWidth(18),
+        color: const Color(0xFF757575),
       ),
     );
   }

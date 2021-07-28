@@ -192,7 +192,9 @@ class _SignUpFormState extends State<SignUpForm> {
       decoration: const InputDecoration(
         hintText: 'Enter your email',
         labelText: 'Email',
-        suffixIcon: CustomSuffixIcon(svgIconSrc: 'assets/icons/Mail.svg'),
+        suffixIcon: CustomSuffixIcon(
+          svgIconSrc: 'assets/icons/Mail.svg',
+        ),
       ),
     );
   }
