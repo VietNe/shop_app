@@ -10,6 +10,7 @@ import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/screens/login_success/login_success_screen.dart';
 import 'package:shop_app/screens/main/main_screen.dart';
 import 'package:shop_app/screens/messages/messages_screen.dart';
+import 'package:shop_app/screens/messages_store/messages_store_screen.dart';
 import 'package:shop_app/screens/my_account/my_account_screen.dart';
 import 'package:shop_app/screens/notifications/notifications_screen.dart';
 import 'package:shop_app/screens/order_success/oder_success_screen.dart';
@@ -43,4 +44,5 @@ final Map<String, WidgetBuilder> routes = {
   NotificationsScreen.routeName: (context) => const NotificationsScreen(),
   CheckoutScreen.routeName: (context) => const CheckoutScreen(),
   HelpCenterScreen.routeName: (context) => const HelpCenterScreen(),
+  MessagesStoreScreen.routeName: (context) => const MessagesStoreScreen(),
 };

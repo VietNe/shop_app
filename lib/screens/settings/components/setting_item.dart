@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:shop_app/constants.dart';
 import 'package:shop_app/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +35,7 @@ class _SettingItemState extends State<SettingItem> {
                 )),
           ),
           CupertinoSwitch(
+            activeColor: kPrimaryColor,
             value: widget.value,
             onChanged: (val) {
               setState(() {

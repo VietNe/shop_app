@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_app/components/number_badge.dart';
+import 'package:shop_app/screens/messages_store/messages_store_screen.dart';
 import 'package:shop_app/size_config.dart';
+
+class MessageArguments {
+  final String sender;
+  final String icon;
+
+  MessageArguments({
+    required this.sender,
+    required this.icon,
+  });
+}
 
 class MessageItem extends StatelessWidget {
   const MessageItem({
@@ -25,7 +36,13 @@ class MessageItem extends StatelessWidget {
         0,
       ),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            MessagesStoreScreen.routeName,
+            arguments: MessageArguments(sender: sender, icon: image),
+          );
+        },
         child: Container(
           padding: EdgeInsets.all(getProportionateScreenWidth(10)),
           child: Row(
